@@ -1,27 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:newsapi/screens/custom_drawer.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
-class ArticleView extends StatefulWidget {
-
-  final String url;
-  ArticleView({this.url});
-  @override
-  _ArticleViewState createState() => _ArticleViewState();
-}
-
-class _ArticleViewState extends State<ArticleView> {
-
-  final Completer<WebViewController> _controller =
-  Completer<WebViewController>();
-
+class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: CustomDrawer(),
-      appBar: AppBar(
+    return AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -57,19 +39,7 @@ class _ArticleViewState extends State<ArticleView> {
               child: Icon(Icons.save),
             ),
           )
-        ],
-      ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        margin: EdgeInsets.only(top: 3),
-        child: WebView(
-            initialUrl: widget.url,
-            onWebViewCreated: (WebViewController webViewController) {
-              _controller.complete(webViewController);
-            }
-        ),
-      ),
+        ]
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:newsapi/helper/data.dart';
 import 'package:newsapi/helper/news_manager.dart';
 import 'package:newsapi/models/articles.dart';
 import 'package:newsapi/models/category_model.dart';
+import 'package:newsapi/screens/custom_drawer.dart';
 import 'package:newsapi/screens/article_view.dart';
 
 class Home extends StatefulWidget {
@@ -39,98 +40,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      drawer: Drawer(
-        elevation: 1,
-        child: ListView(
-          shrinkWrap: true,
-          children: <Widget>[
-            DrawerHeader(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.blue,),
-                        shape: BoxShape.rectangle,
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(1),topLeft: Radius.circular(1),bottomRight: Radius.zero,topRight: Radius.zero)
-                    ),
-                    child: Text('News',style : TextStyle(color: Colors.white,),),
-                    padding: EdgeInsets.all(3),
-                    //style: TextStyle(backgroundColor: Colors.blue,color: Colors.white,)
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.elliptical(1, 1)),
-                        border: Border.all(color: Colors.blue,),
-                        shape: BoxShape.rectangle
-                    ),
-                    child:Text('API',style: TextStyle(color: Colors.blue,),),
-                  ),
-                ],
-              ),
-              padding: EdgeInsets.all(2),
-            ),
-            ListTile(
-              title: Text('Home'),
-              leading: Icon(Icons.home),
-              onTap: (){
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('World'),
-              leading: Icon(Icons.language),
-              onTap: (){
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Business'),
-              leading: Icon(Icons.business),
-              onTap: (){
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Sports'),
-              leading: Icon(Icons.golf_course),
-              onTap: (){
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Technology'),
-              leading: Icon(Icons.desktop_mac),
-              onTap: (){
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Entertainment'),
-              leading: Icon(Icons.videocam),
-              onTap: (){
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Feedback'),
-              leading: Icon(Icons.feedback),
-                onTap: (){
-                  Navigator.pop(context);
-                }
-            ),
-            ListTile(
-              title: Text('About Us'),
-              leading: Icon(Icons.info),
-                onTap: (){
-                  Navigator.pop(context);
-                }
-            ),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(),
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -174,17 +84,6 @@ class _HomeState extends State<Home> {
           margin: EdgeInsets.only(top: 6),
           child: Column(
             children: <Widget>[
-//             Container(
-//               height: 70,
-//               padding: EdgeInsets.symmetric(horizontal: 5),
-//               child:  ListView.builder(itemBuilder: (context,index){
-//                 return CategoryTile(
-//                   imageUrl: categories[index].imageUrl,
-//                   categoryName: categories[index].categoryName,
-//                 );
-//               },itemCount: categories.length,scrollDirection: Axis.horizontal,shrinkWrap: true,),
-//             ),
-              // Articles
               Container(
                 margin: EdgeInsets.only(top: 0),
                 padding: EdgeInsets.all(5),
